@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import Start from "./pages/Start";
-import Journey from "./pages/Journey"
+import Start from "./start";
+import Journey from "./journey";
 import { JourneyContext } from "./context/JourneyContext";
 import { Route, Routes } from "react-router-dom";
 
