@@ -1,10 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Start() {
-    return (
-        <div>
-        <h1>Welcome to the Journey Planning Form</h1>
-        <button onClick={() => {}}>Start Journey</button>
-      </div>
-    )
+  const navigate = useNavigate();
+
+  const onStartClickHandler = () => {
+    navigate("/journey");
+  };
+
+  return (
+    <div>
+      <h1>Welcome to the Journey Planning Form</h1>
+      <button onClick={() => onStartClickHandler()}>Start Journey</button>
+    </div>
+  );
 }

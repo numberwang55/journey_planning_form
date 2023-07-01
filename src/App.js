@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Start from "./pages/Start";
+import Journey from "./pages/Journey"
 import { JourneyContext } from "./context/JourneyContext";
 import { Route, Routes } from "react-router-dom";
 
@@ -18,6 +19,7 @@ function App() {
         <header className="App-header">
           <Routes>
             <Route path="/" element={<Start />}></Route>
+            <Route path="/journey" element={<Journey />}></Route>
           </Routes>
         </header>
       </JourneyContext.Provider>
