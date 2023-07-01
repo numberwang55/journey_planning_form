@@ -1,12 +1,26 @@
-import './App.css';
-import Start from './pages/Start'
+import { useState } from "react";
+import "./App.css";
+import Start from "./pages/Start";
+import { JourneyContext } from "./context/JourneyContext";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
+  const [journey, setJourney] = useState({
+    minutesBetweenP1AndP2: 0.0,
+    milesBetweenP1AndP2: 0.0,
+    minutesBetweenP2AndP3: 0.0,
+    milesBetweenP2AndP3: 0.0,
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Start/>
-      </header>
+      <JourneyContext.Provider value={{ journey, setJourney }}>
+        <header className="App-header">
+          <Routes>
+            <Route path="/" element={<Start />}></Route>
+          </Routes>
+        </header>
+      </JourneyContext.Provider>
     </div>
   );
 }
