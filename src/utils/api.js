@@ -12,7 +12,7 @@ const getJourney = (route, format = "miles", travelMode = "driving", trafficmoda
             travelMode: travelMode,
             trafficmodal: trafficmodal
         }
-    }).then(({data} )=> data)
+    }).then(({data} )=> typeof data)
 }
 
 getJourney(["ex203rx, sg86ed"]).then(res => console.log(res))
