@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Journey Planner App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Journey Planner App is a single-page web application built with React that allows users to plan journeys by entering UK postcodes and calculating travel distances and times between them.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Simple and user-friendly interface
+- Add, edit, remove, and reorder postcodes in the journey list
+- Calculate travel distances and times between postcodes using an API call
+- Display total travel distance and total travel time for the entire journey
+- Support for multiple browsers and screen sizes
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
+git clone https://github.com/numberwang55/journey_planning_form
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Navigate to the project directory:
+cd journey_planning_form
 
-### `npm test`
+3. Install the dependencies:
+npm i
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Start the development server:
+npm start
 
-### `npm run build`
+5. Open the app in your browser at `http://localhost:3000`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Start the journey planning by clicking the "Start Journey" button on the initial screen.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. On the journey entry screen, enter a valid UK postcode in the input box and click the "Add" button to add it to the journey list. The table allows you to edit, remove, or reorder the postcodes.
 
-### `npm run eject`
+3. Once you have added all the desired postcodes, click the "Calculate Journey" button to fetch the travel distances and times from the api.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. During the calculation, a loading image will be displayed. Upon completion, the result screen will show the total travel distance and total travel time between the first and second postcode and the second and third, if applicable.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. To start a new journey, click the "Start Over" button on the result screen.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React
+- JavaScript
+- CSS

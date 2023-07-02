@@ -5,6 +5,7 @@ export default function Result({ setView, postcodes, setPostcodes }) {
     <JourneyResult
       setView={setView}
       postcodes={postcodes}
+      setPostcodes={setPostcodes}
     />
   );
 }

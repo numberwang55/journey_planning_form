@@ -4,15 +4,16 @@ import Loading from "../../../components/Loading";
 import fetchJourney from "../../../utils/api";
 import { journeyFormatter } from "../../../utils/journeyFormatter";
 
-export default function JourneyResult({ setView, postcodes }) {
-
+export default function JourneyResult({ setView, postcodes, setPostcodes }) {
   const { journey, setJourney } = useContext(JourneyContext);
   const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOnStartClick = () => {
-    setView("start")
-  }
+  const handleOnStartOverClick = () => {
+    setPostcodes([]);
+    setView("start");
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -22,8 +23,8 @@ export default function JourneyResult({ setView, postcodes }) {
         setIsLoading(false);
       })
       .catch((err) => {
+        isError(true);
         setError(err);
-        console.log(err);
         setIsLoading(false);
       });
   }, [postcodes]);
@@ -32,20 +33,28 @@ export default function JourneyResult({ setView, postcodes }) {
     return <Loading />;
   }
 
+  if (isError) {
+    return (
+      <div>
+        <p>{error}</p>
+        <button onClick={() => handleOnStartOverClick()}>Start Over</button>
+      </div>
+    );
+  }
+
   return (
     <div className="result-container">
       <ul>
         <li>{journey.postcodeOneTravelTime}</li>
         <li>{journey.postcodeOneDistance}</li>
-        {journey.postcodeTwoDistance !== "" ? 
-        <li>{journey.postcodeTwoTravelTime}</li>
-        : null}
-        {journey.postcodeTwoDistance !== "" ?
-         <li>{journey.postcodeTwoDistance}</li>
-         : null
-        }
+        {journey.postcodeTwoDistance !== "" ? (
+          <li>{journey.postcodeTwoTravelTime}</li>
+        ) : null}
+        {journey.postcodeTwoDistance !== "" ? (
+          <li>{journey.postcodeTwoDistance}</li>
+        ) : null}
       </ul>
-      <button onClick={() => handleOnStartClick()}>Start Over</button>
+      <button onClick={() => handleOnStartOverClick()}>Start Over</button>
     </div>
   );
 }
