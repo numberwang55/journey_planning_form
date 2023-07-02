@@ -1,28 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { StartJourney } from "./components/StartJourney";
 
-export default function Start() {
-  const navigate = useNavigate();
-
+export default function Start({ setView }) {
   const onStartClickHandler = () => {
-    navigate("/journey");
+    setView("journey");
   };
 
-  return <StartJourney navigateToJourney={onStartClickHandler}/>
+  return (
+    <div>
+      <h1>Welcome to the Journey Planning Form</h1>
+      <button onClick={() => onStartClickHandler()}>Start Journey</button>
+    </div>
+  );
 }
-
-// export default function Start() {
-//   const navigate = useNavigate();
-
-//   const onStartClickHandler = () => {
-//     navigate("/journey");
-//   };
-
-//   return (
-//     <div>
-//       <h1>Welcome to the Journey Planning Form</h1>
-//       <button onClick={() => onStartClickHandler()}>Start Journey</button>
-//     </div>
-//   );
-// }

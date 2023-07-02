@@ -8,7 +8,7 @@ describe("tests the StartJourney component", () => {
   it("should render welcome text on screen", () => {
     render(<StartJourney />);
     const welcomeText = screen.getByText(
-      "Welcome to the Journey Planning Form"
+      "Welcome to the Postcode Journey Planner"
     );
     expect(welcomeText).toBeInTheDocument();
   });

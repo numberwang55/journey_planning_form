@@ -1,5 +1,113 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.journey-entry-container {
+  padding: 20px;
+}
+
+.journey-entry-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input[type="text"] {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.journey-entry-container button {
+  padding: 8px 16px;
+  margin-bottom: 10px;
+}
+
+.journey-entry-container p {
+  color: red;
+  margin-top: 10px;
+}
+
+.journey-entry-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.journey-entry-container th,
+.journey-entry-container td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.journey-entry-container th {
+  text-align: left;
+  background-color: #f0f0f0;
+}
+
+.journey-entry-container .actions {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .journey-entry-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .input-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .input-container input[type="text"] {
+    margin-right: 10px;
+  }
+
+  .journey-entry-container button {
+    margin-left: 10px;
+  }
+
+  .journey-entry-container table {
+    margin-top: 20px;
+  }
+} */
+
+
+
 .App {
   text-align: center;
+}
+
+button {
+  padding: 0.5em 1em;
+  font-size: 0.8em;
 }
 
 .App-header {
@@ -23,13 +131,15 @@
   margin-bottom: 1em;
 }
 
-.start-journey-container button {
+/* .start-journey-container button {
   padding: 0.5em 1em;
   font-size: 1.5em;
-}
+} */
 
 .journey-entry-container {
   padding: 1.25em;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .journey-entry-container h2 {
@@ -41,7 +151,7 @@
   height: 2em;
 }
 
-.input-container {
+/* .input-container {
   display: flex;
   flex-direction: column;
 }
@@ -49,16 +159,27 @@
 .input-container input[type="text"] {
   padding: 0.5em;
   margin-bottom: 0.625em;
-}
+} */
 
 .journey-entry-container button {
   padding: 0.5em 1em;
   margin-bottom: 0.625em;
+  margin-left: 0.5em;
+  font-size: 0.5em;
+}
+
+.journey-entry-container button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  padding: 0.5em 1em;
+  font-size: 0.5em;
 }
 
 .journey-entry-container p {
   color: red;
-  margin-top: 0.625em;
+  /* margin-top: 0.625em; */
+  font-size: 0.8em;
+  text-align: center;
 }
 
 .journey-entry-container table {
@@ -82,11 +203,6 @@
   border: 0.125em solid #ccc;
 }
 
-.journey-entry-container button[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 .result-container {
   padding: 1em;
   text-align: center;
@@ -105,10 +221,12 @@
   /* text-overflow: ellipsis; */
 }
 
-.result-container button {
+/* .result-container button {
   padding: 0.8em 1.5em;
   font-size: 1em;
-}
+  padding: 0.5em 1em;
+  font-size: 1.5em;
+} */
 
 @media (max-width: 37.5em) {
   .start-journey-container {

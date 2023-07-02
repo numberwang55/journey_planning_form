@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { DisplayJourney } from './DisplayJourney';
 
-export const CreateJourney = () => {
+export const CreateJourney = ({setView}) => {
     const [postcodeInput, setPostcodeInput] = useState('');
     const [postcodes, setPostcodes] = useState([]);
-    const [isInvalidPostcode, setIsInvalidPostcode] = useState(null)
+    const [isInvalidPostcode, setIsInvalidPostcode] = useState(false)
   
     const handlePostcodeChange = (event) => {
       setPostcodeInput(event.target.value);
+      if (postcodeInput.length === 0) {
+        setIsInvalidPostcode(false)
+      }
     };
 
     const isValidUKPostcode = (postcode) => {
         if (postcode.match(/^[a-zA-Z]{1,2}([0-9]{1,2}|[0-9][a-zA-Z])\s*[0-9][a-zA-Z]{2}$/)) {
-            setIsInvalidPostcode(null)
+            setIsInvalidPostcode(false)
             return true;
         } else {
             setIsInvalidPostcode(true)
@@ -23,6 +26,7 @@ export const CreateJourney = () => {
       if (isValidUKPostcode(postcodeInput) && postcodes.length < 3) {
         setPostcodes([...postcodes, postcodeInput]);
         setPostcodeInput('');
+        // setIsInvalidPostcode(false)
       }
     };
   
@@ -62,6 +66,7 @@ export const CreateJourney = () => {
 
     const handleClearInput = () => {
         setPostcodeInput("")
+        setIsInvalidPostcode(false)
     }
 
     return (
@@ -76,6 +81,7 @@ export const CreateJourney = () => {
             handleRemovePostcode={handleRemovePostcode}
             isInvalidPostcode={isInvalidPostcode}
             handleClearInput={handleClearInput}
+            setView={setView}
         />
     )
 }
