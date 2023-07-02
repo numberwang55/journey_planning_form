@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import Start from "./start";
-import Journey from "./journey";
-import Result from "./result";
+import Start from "./views/start";
+import Journey from "./views/journey";
+import Result from "./views/result";
 import { JourneyContext } from "./context/JourneyContext.js";
+import Loading from "./components/Loading";
 
 function App() {
-  const [journey, setJourney] = useState("");
+  const [journey, setJourney] = useState({});
   const [view, setView] = useState("start");
 
   return (
@@ -22,6 +23,11 @@ function App() {
             {view === "journey" && (
               <div>
                 <Journey setView={setView} />
+              </div>
+            )}
+            {view === "loading" && (
+              <div>
+                <Loading/>
               </div>
             )}
             {view === "result" && (

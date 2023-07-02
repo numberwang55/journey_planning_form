@@ -1,106 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.journey-entry-container {
-  padding: 20px;
-}
-
-.journey-entry-container h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-container input[type="text"] {
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-.journey-entry-container button {
-  padding: 8px 16px;
-  margin-bottom: 10px;
-}
-
-.journey-entry-container p {
-  color: red;
-  margin-top: 10px;
-}
-
-.journey-entry-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-.journey-entry-container th,
-.journey-entry-container td {
-  padding: 8px;
-  border: 1px solid #ccc;
-}
-
-.journey-entry-container th {
-  text-align: left;
-  background-color: #f0f0f0;
-}
-
-.journey-entry-container .actions {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .journey-entry-container {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .input-container {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .input-container input[type="text"] {
-    margin-right: 10px;
-  }
-
-  .journey-entry-container button {
-    margin-left: 10px;
-  }
-
-  .journey-entry-container table {
-    margin-top: 20px;
-  }
-} */
-
-
-
 .App {
   text-align: center;
 }
@@ -108,6 +5,10 @@
 button {
   padding: 0.5em 1em;
   font-size: 0.8em;
+}
+
+img {
+  width: 10em;
 }
 
 .App-header {
@@ -212,11 +113,11 @@ button {
   justify-content: center;
 }
 
-.result-container p {
-  font-size: 1.2em;
+.result-container ul {
+  font-size: 1em;
   margin-bottom: 1em;
-  max-width: 50%;
-  text-align: center;
+  max-width: 100%;
+  text-align: left;
   /* overflow: hidden; */
   /* text-overflow: ellipsis; */
 }
