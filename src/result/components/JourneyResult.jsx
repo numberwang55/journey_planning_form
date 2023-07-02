@@ -8,7 +8,7 @@ export default function JourneyResult() {
     const { journey } = useContext(JourneyContext);
 
     return (
-        <div>
+        <div className="result-container">
             <p>{journey}</p>
             <button onClick={() => navigate("/")} >Start Over</button>
         </div>

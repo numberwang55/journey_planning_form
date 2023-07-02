@@ -27,7 +27,7 @@ export const DisplayJourney = ({
   }, [postcodes]);
 
   return (
-    <div>
+    <div className="journey-entry-container">
       <h2>Journey Entry</h2>
       <input
         type="text"
