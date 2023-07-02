@@ -4,6 +4,7 @@ import { DisplayJourney } from './DisplayJourney';
 export const CreateJourney = () => {
     const [postcodeInput, setPostcodeInput] = useState('');
     const [postcodes, setPostcodes] = useState([]);
+    const [isInvalidPostcode, setIsInvalidPostcode] = useState(null)
   
     const handlePostcodeChange = (event) => {
       setPostcodeInput(event.target.value);
@@ -11,9 +12,10 @@ export const CreateJourney = () => {
 
     const isValidUKPostcode = (postcode) => {
         if (postcode.match(/^[a-zA-Z]{1,2}([0-9]{1,2}|[0-9][a-zA-Z])\s*[0-9][a-zA-Z]{2}$/)) {
+            setIsInvalidPostcode(null)
             return true;
         } else {
-            <p>Invalid Postcode</p>;
+            setIsInvalidPostcode(true)
         }
       };
   
@@ -25,11 +27,9 @@ export const CreateJourney = () => {
     };
   
     const handleEditPostcode = (index, newPostcode) => {
-      if (isValidUKPostcode(newPostcode)) {
         const updatedPostcodes = [...postcodes];
         updatedPostcodes[index] = newPostcode;
         setPostcodes(updatedPostcodes);
-      }
     };
   
     const handleRemovePostcode = (index) => {
@@ -60,6 +60,10 @@ export const CreateJourney = () => {
         }
       };
 
+    const handleClearInput = () => {
+        setPostcodeInput("")
+    }
+
     return (
         <DisplayJourney
             postcodeInput={postcodeInput}
@@ -70,6 +74,8 @@ export const CreateJourney = () => {
             handleMoveUp={handleMoveUp}
             handleMoveDown={handleMoveDown}
             handleRemovePostcode={handleRemovePostcode}
+            isInvalidPostcode={isInvalidPostcode}
+            handleClearInput={handleClearInput}
         />
     )
 }

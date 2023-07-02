@@ -31,6 +31,6 @@ export function journeyFormatter(str) {
     return journey
   }
 
-const inputString = '59,42.1;44,26.7;';
-const journeyData = journeyFormatter(inputString);
-console.log(journeyData);
+// const inputString = '59,42.1;44,26.7;';
+// const journeyData = journeyFormatter(inputString);
+// console.log(journeyData);
