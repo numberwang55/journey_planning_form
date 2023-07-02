@@ -1,13 +1,35 @@
 import { JourneyContext } from "../../../context/JourneyContext";
-// import { JourneyContext } from "../../context/JourneyContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import Loading from "../../../components/Loading";
+import fetchJourney from "../../../utils/api";
+import { journeyFormatter } from "../../../utils/journeyFormatter";
 
-export default function JourneyResult({ setView }) {
+export default function JourneyResult({ setView, postcodes }) {
 
-  const { journey } = useContext(JourneyContext);
+  const { journey, setJourney } = useContext(JourneyContext);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOnStartClick = () => {
     setView("start")
+  }
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchJourney(postcodes)
+      .then((journey) => {
+        setJourney(journeyFormatter(journey));
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        console.log(err);
+        setIsLoading(false);
+      });
+  }, [postcodes]);
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (

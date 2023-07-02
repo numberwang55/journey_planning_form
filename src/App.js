@@ -8,6 +8,7 @@ import Loading from "./components/Loading";
 
 function App() {
   const [journey, setJourney] = useState({});
+  const [postcodes, setPostcodes] = useState([]);
   const [view, setView] = useState("start");
 
   return (
@@ -22,17 +23,25 @@ function App() {
             )}
             {view === "journey" && (
               <div>
-                <Journey setView={setView} />
+                <Journey
+                  setView={setView}
+                  postcodes={postcodes}
+                  setPostcodes={setPostcodes}
+                />
               </div>
             )}
             {view === "loading" && (
               <div>
-                <Loading/>
+                <Loading />
               </div>
             )}
             {view === "result" && (
               <div>
-                <Result setView={setView} />
+                <Result
+                  setView={setView}
+                  postcodes={postcodes}
+                  setPostcodes={setPostcodes}
+                />
               </div>
             )}
           </div>

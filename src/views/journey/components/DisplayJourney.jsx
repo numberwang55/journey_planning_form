@@ -1,8 +1,3 @@
-import { useContext, useEffect, useState } from "react";
-import fetchJourney from "../../../utils/api";
-import { JourneyContext } from "../../../context/JourneyContext";
-import { journeyFormatter } from "../../../utils/journeyFormatter";
-
 export const DisplayJourney = ({
   postcodeInput,
   postcodes,
@@ -14,24 +9,8 @@ export const DisplayJourney = ({
   handleMoveDown,
   isInvalidPostcode,
   handleClearInput,
-  setView
+  setView,
 }) => {
-  const { setJourney } = useContext(JourneyContext);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchJourney(postcodes)
-      .then((journey) => {
-        setJourney(journeyFormatter(journey));
-      })
-      .catch((err) => {
-        setError(err);
-        console.log(err);
-        setIsLoading(false);
-      });
-  }, [postcodes]);
-
   return (
     <div className="journey-entry-container">
       <h2>Journey Postcode Entry</h2>
@@ -59,6 +38,7 @@ export const DisplayJourney = ({
             <tr>
               <th>Step</th>
               <th>Postcode</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -101,10 +81,8 @@ export const DisplayJourney = ({
       <br />
       <button
         onClick={() => {
-          setView("loading")
-          setTimeout(() => {
-            setView("result")
-          }, 3000)
+
+          setView("result");
         }}
         disabled={postcodes.length < 2}
       >
@@ -113,4 +91,3 @@ export const DisplayJourney = ({
     </div>
   );
 };
-
