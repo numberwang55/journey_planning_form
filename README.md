@@ -13,16 +13,16 @@ The Journey Planner App is a single-page web application built with React that a
 ## Installation
 
 1. Clone the repository:
-git clone https://github.com/numberwang55/journey_planning_form
+   git clone https://github.com/numberwang55/journey_planning_form
 
 2. Navigate to the project directory:
-cd journey_planning_form
+   cd journey_planning_form
 
 3. Install the dependencies:
-npm i
+   npm i
 
 4. Start the development server:
-npm start
+   npm start
 
 5. Open the app in your browser at `http://localhost:3000`.
 
@@ -37,6 +37,14 @@ npm start
 4. During the calculation, a loading image will be displayed. Upon completion, the result screen will show the total travel distance and total travel time between the first and second postcode and the second and third, if applicable.
 
 5. To start a new journey, click the "Start Over" button on the result screen.
+
+## Testing
+
+To run the unit tests please use the below command:
+
+```
+$ npm t
+```
 
 ## Technologies Used
 
