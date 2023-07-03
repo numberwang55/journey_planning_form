@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -8,7 +12,7 @@ button {
 }
 
 img {
-  width: 10em;
+  width: 20em;
 }
 
 .App-header {
@@ -66,19 +70,19 @@ img {
   padding: 0.5em 1em;
   margin-bottom: 0.625em;
   margin-left: 0.5em;
-  font-size: 0.5em;
+  font-size: 0.6em;
 }
 
 .journey-entry-container button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
   padding: 0.5em 1em;
-  font-size: 0.5em;
+  font-size: 0.6em;
 }
 
 .journey-entry-container p {
   color: red;
-  /* margin-top: 0.625em; */
+  margin-top: 0.1em;
   font-size: 0.8em;
   text-align: center;
 }
@@ -130,18 +134,23 @@ img {
 } */
 
 @media (max-width: 37.5em) {
+
+  img {
+    width: 15em;
+  }
+
   .start-journey-container {
     margin-bottom: 1.5em;
   }
 
   .start-journey-container h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 1em;
   }
 
   .start-journey-container button {
     padding: 0.75em 1em;
-    font-size: 1.5em;
+    font-size: 0.6em;
   }
 
   .journey-entry-container {
@@ -149,22 +158,31 @@ img {
   }
 
   .journey-entry-container h2 {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 0.5em;
   }
 
   .journey-entry-container input {
-    height: 2em;
+    height: 1.5em;
   }
 
-  .input-container input[type="text"] {
+  /* .input-container input[type="text"] {
     padding: 0.5em;
     margin-bottom: 0.5em;
-  }
+    font-size: 0.4em;
+  } */
 
   .journey-entry-container button {
     padding: 0.5em 1em;
     margin-bottom: 0.5em;
+    font-size: 0.5em;
+  }
+
+  .journey-entry-container button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    padding: 0.5em 1em;
+    font-size: 0.5em;
   }
 
   .journey-entry-container p {
@@ -196,6 +214,6 @@ img {
 
   .result-container button {
     padding: 0.7em 1em;
-    font-size: 1em;
+    font-size: 0.6em;
   }
 }

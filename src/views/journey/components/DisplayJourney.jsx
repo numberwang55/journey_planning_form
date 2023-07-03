@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export const DisplayJourney = ({
   postcodeInput,
   postcodes,
@@ -9,20 +7,11 @@ export const DisplayJourney = ({
   handleRemovePostcode,
   handleMoveUp,
   handleMoveDown,
+  handleCalculateClick,
   isInvalidPostcode,
   handleClearInput,
-  setView,
-  isValidUKPostcode
+  checkValidUKPostcode
 }) => {
-  console.log(postcodes);
-
-  const handleCalculateClick = () => {
-    const invalid = postcodes.every(isValidUKPostcode)
-    if (invalid) {
-      setView("result");
-    }
-  }
-
   return (
     <div className="journey-entry-container">
       <h2>Journey Postcode Entry</h2>
@@ -63,10 +52,9 @@ export const DisplayJourney = ({
                     value={postcode}
                     onChange={(e) => handleEditPostcode(index, e.target.value)}
                   />
-                  {!isValidUKPostcode(postcode) ? (
+                  {!checkValidUKPostcode(postcode) ? (
                     <p>Invalid Postcode</p>
                   ) : null}
-                  {/* {postcode} */}
                 </td>
                 <td>
                   <button onClick={() => handleRemovePostcode(index)}>
@@ -75,12 +63,14 @@ export const DisplayJourney = ({
                   <button
                     onClick={() => handleMoveUp(index)}
                     disabled={index === 0}
+                    data-testid={`move-up-button-${index}`}
                   >
                     🔼
                   </button>
                   <button
                     onClick={() => handleMoveDown(index)}
                     disabled={index === postcodes.length - 1}
+                    data-testid={`move-down-button-${index}`}
                   >
                     🔽
                   </button>
@@ -95,7 +85,7 @@ export const DisplayJourney = ({
         onClick={() => {
           handleCalculateClick()
         }}
-        disabled={postcodes.length < 2}
+        disabled={postcodes.length < 2 || isInvalidPostcode}
       >
         Calculate Journey
       </button>

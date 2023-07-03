@@ -6,7 +6,7 @@ import { journeyFormatter } from "../../../utils/journeyFormatter";
 
 export default function JourneyResult({ setView, postcodes, setPostcodes }) {
   const { journey, setJourney } = useContext(JourneyContext);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,9 +23,9 @@ export default function JourneyResult({ setView, postcodes, setPostcodes }) {
         setIsLoading(false);
       })
       .catch((err) => {
-        // isError(true);
-        // setError(err);
-        // setIsLoading(false);
+        setIsError(true);
+        setError(err);
+        setIsLoading(false);
       });
   }, [postcodes, isError, setJourney]);
 
@@ -42,16 +42,25 @@ export default function JourneyResult({ setView, postcodes, setPostcodes }) {
     );
   }
 
+  const postcodeOneTravelTime = `${journey.postcodeOneTravelTime} ${postcodes[0].toUpperCase()} and ${postcodes[1].toUpperCase()}`
+  const postcodeOneDistance = `${journey.postcodeOneDistance} ${postcodes[0].toUpperCase()} and ${postcodes[1].toUpperCase()}`
+  let postcodeTwoTravelTime = ""
+  let postcodeTwoDistance = ""
+  if (postcodes[2] !== undefined) {
+    postcodeTwoTravelTime = `${journey.postcodeTwoTravelTime} ${postcodes[1].toUpperCase()} and ${postcodes[2].toUpperCase()}`
+    postcodeTwoDistance = `${journey.postcodeTwoDistance} ${postcodes[1].toUpperCase()} and ${postcodes[2].toUpperCase()}`
+  }
+
   return (
     <div className="result-container">
       <ul>
-        <li>{journey.postcodeOneTravelTime}</li>
-        <li>{journey.postcodeOneDistance}</li>
+        <li>{postcodeOneTravelTime}</li>
+        <li>{postcodeOneDistance}</li>
         {journey.postcodeTwoDistance !== "" ? (
-          <li>{journey.postcodeTwoTravelTime}</li>
+          <li>{postcodeTwoTravelTime}</li>
         ) : null}
         {journey.postcodeTwoDistance !== "" ? (
-          <li>{journey.postcodeTwoDistance}</li>
+          <li>{postcodeTwoDistance}</li>
         ) : null}
       </ul>
       <button onClick={() => handleOnStartOverClick()}>Start Over</button>

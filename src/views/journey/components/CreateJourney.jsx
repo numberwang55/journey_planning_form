@@ -12,7 +12,7 @@ export const CreateJourney = ({ setView, postcodes, setPostcodes }) => {
     }
   };
 
-  const isValidUKPostcode = (postcode) => {
+  const checkValidUKPostcode = (postcode) => {
     if (
       postcode.match(
         /^[a-zA-Z]{1,2}([0-9]{1,2}|[0-9][a-zA-Z])\s*[0-9][a-zA-Z]{2}$/
@@ -26,7 +26,7 @@ export const CreateJourney = ({ setView, postcodes, setPostcodes }) => {
   };
 
   const handleAddPostcode = () => {
-    if (isValidUKPostcode(postcodeInput) && postcodes.length < 3) {
+    if (checkValidUKPostcode(postcodeInput) && postcodes.length < 3) {
       setPostcodes([...postcodes, postcodeInput]);
       setPostcodeInput("");
       // setIsInvalidPostcode(false)
@@ -72,6 +72,13 @@ export const CreateJourney = ({ setView, postcodes, setPostcodes }) => {
     setIsInvalidPostcode(false);
   };
 
+  const handleCalculateClick = () => {
+    const invalid = postcodes.every(checkValidUKPostcode)
+    if (invalid) {
+      setView("result");
+    }
+  }
+
   return (
     <DisplayJourney
       postcodeInput={postcodeInput}
@@ -82,10 +89,10 @@ export const CreateJourney = ({ setView, postcodes, setPostcodes }) => {
       handleMoveUp={handleMoveUp}
       handleMoveDown={handleMoveDown}
       handleRemovePostcode={handleRemovePostcode}
+      handleCalculateClick={handleCalculateClick}
       isInvalidPostcode={isInvalidPostcode}
       handleClearInput={handleClearInput}
-      setView={setView}
-      isValidUKPostcode={isValidUKPostcode}
+      checkValidUKPostcode={checkValidUKPostcode}
     />
   );
 };
