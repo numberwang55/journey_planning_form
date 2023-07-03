@@ -45,7 +45,6 @@ To run the unit tests please use the below command:
 ```
 $ npm t
 ```
-
 ## Technologies Used
 
 - React
