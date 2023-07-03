@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen,  } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { CreateJourney } from './CreateJourney';
 import '@testing-library/jest-dom'
 
@@ -17,10 +17,10 @@ describe('CreateJourney', () => {
     const postcodeInput = getByPlaceholderText('Enter a postcode');
     const addButton = getByText('Add Postcode');
 
-    fireEvent.change(postcodeInput, { target: { value: 'SW1A 1AA' } });
+    fireEvent.change(postcodeInput, { target: { value: 'EX20 3BP' } });
     fireEvent.click(addButton);
 
-    expect(setPostcodesMock).toHaveBeenCalledWith(['SW1A 1AA']);
+    expect(setPostcodesMock).toHaveBeenCalledWith(['EX20 3BP']);
   });
 
   test('prevents adding an invalid postcode', () => {
@@ -40,7 +40,7 @@ describe('CreateJourney', () => {
   });
 
   test('allows removing a postcode', () => {
-    const postcodes = ['SW1A 1AA'];
+    const postcodes = ['EX20 3BP'];
     const setPostcodesMock = jest.fn();
     const { getByText, queryByText } = render(
       <CreateJourney setView={() => {}} postcodes={postcodes} setPostcodes={setPostcodesMock} />
@@ -50,11 +50,11 @@ describe('CreateJourney', () => {
     fireEvent.click(removeButton);
 
     expect(setPostcodesMock).toHaveBeenCalledWith([]);
-    expect(queryByText('SW1A 1AA')).not.toBeInTheDocument();
+    expect(queryByText('EX20 3BP')).not.toBeInTheDocument();
   });
 
   test('allows moving a postcode up', () => {
-    const postcodes = ['SW1A 1AA', 'W1G 0AE'];
+    const postcodes = ['EX20 3BP', 'SG8 6ED'];
     const setPostcodesMock = jest.fn();
     const { getByTestId } = render(
       <CreateJourney setView={() => {}} postcodes={postcodes} setPostcodes={setPostcodesMock} />
@@ -63,11 +63,11 @@ describe('CreateJourney', () => {
     const moveUpButton = getByTestId("move-up-button-1");
     fireEvent.click(moveUpButton);
 
-    expect(setPostcodesMock).toHaveBeenCalledWith(['W1G 0AE', 'SW1A 1AA']);
+    expect(setPostcodesMock).toHaveBeenCalledWith(['SG8 6ED', 'EX20 3BP']);
   });
 
   test('allows moving a postcode down', () => {
-    const postcodes = ['SW1A 1AA', 'W1G 0AE'];
+    const postcodes = ['EX20 3BP', 'SG8 6ED'];
     const setPostcodesMock = jest.fn();
     const { getByTestId } = render(
       <CreateJourney setView={() => {}} postcodes={postcodes} setPostcodes={setPostcodesMock} />
@@ -76,12 +76,12 @@ describe('CreateJourney', () => {
     const moveDownButton = getByTestId("move-down-button-0");
     fireEvent.click(moveDownButton);
 
-    expect(setPostcodesMock).toHaveBeenCalledWith(['W1G 0AE', 'SW1A 1AA']);
+    expect(setPostcodesMock).toHaveBeenCalledWith(['SG8 6ED', 'EX20 3BP']);
   });
 
   test('calls setView when "Calculate Journey" button is clicked', () => {
     const setViewMock = jest.fn();
-    const postcodes = ['SW1A 1AA', 'W1G 0AE'];
+    const postcodes = ['EX20 3BP', 'SG8 6ED'];
     const { getByText } = render(
       <CreateJourney setView={setViewMock} postcodes={postcodes} setPostcodes={() => {}} />
     );
