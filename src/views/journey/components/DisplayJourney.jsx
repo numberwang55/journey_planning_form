@@ -10,16 +10,17 @@ export const DisplayJourney = ({
   handleCalculateClick,
   isInvalidPostcode,
   handleClearInput,
-  checkValidUKPostcode
+  checkValidUKPostcode,
 }) => {
   return (
-    <div className="journey-entry-container">
+    <div className="display-journey-container">
       <h2>Journey Postcode Entry</h2>
       <input
         type="text"
         placeholder="Enter a postcode"
         value={postcodeInput}
         onChange={handlePostcodeChange}
+        aria-label="Postcode entry box"
       />
       <button
         onClick={handleAddPostcode}
@@ -51,6 +52,7 @@ export const DisplayJourney = ({
                     type="text"
                     value={postcode}
                     onChange={(e) => handleEditPostcode(index, e.target.value)}
+                    aria-label={`${postcode}`}
                   />
                   {!checkValidUKPostcode(postcode) ? (
                     <p>Invalid Postcode</p>
@@ -83,7 +85,7 @@ export const DisplayJourney = ({
       <br />
       <button
         onClick={() => {
-          handleCalculateClick()
+          handleCalculateClick();
         }}
         disabled={postcodes.length < 2 || isInvalidPostcode}
       >
