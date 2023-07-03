@@ -2,14 +2,19 @@
   margin: 0;
 }
 
-.App {
-  text-align: center;
+body {
+  background-image: url('./images/journey_image.png');
+  background-position: center;
+  background-size: cover;
 }
 
 button {
   padding: 0.5em 1em;
   font-size: 0.8em;
   border-radius: 0.8em;
+  color: black;
+  background-color: crimson;
+  font-weight: bold;
 }
 
 img {
@@ -19,17 +24,23 @@ img {
 h2 {
   font-size: 1.5;
   margin-bottom: 0.5em;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
+.App {
+  text-align: center;
+}
+
+.app-container {
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  text-align: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
 }
 
 .start-journey-container {
@@ -100,6 +111,7 @@ h2 {
 .journey-entry-container td {
   padding: 0.5em;
   border: 0.125em solid #ccc;
+  color: white;
 }
 
 .result-container {
@@ -116,8 +128,6 @@ h2 {
   margin-bottom: 1em;
   max-width: 100%;
   text-align: left;
-  /* overflow: hidden; */
-  /* text-overflow: ellipsis; */
 }
 
 /* .result-container button {
@@ -186,11 +196,13 @@ h2 {
   .journey-entry-container th {
     border: 0.125em solid #ccc;
     padding: 0.25em;
+    font-size: 0.8em;
   }
 
   .journey-entry-container td {
     padding: 0.5em;
     border: 0.125em solid #ccc;
+    font-size: 0.8em;
   }
 
   .result-container {

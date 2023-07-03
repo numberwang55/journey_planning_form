@@ -12,40 +12,38 @@ function App() {
   const [view, setView] = useState("start");
 
   return (
-    <div className="App">
+    <div className="app-container">
       <JourneyContext.Provider value={{ journey, setJourney }}>
-        <header className="App-header">
-          <div>
-            {view === "start" && (
-              <div>
-                <Start setView={setView} />
-              </div>
-            )}
-            {view === "journey" && (
-              <div>
-                <Journey
-                  setView={setView}
-                  postcodes={postcodes}
-                  setPostcodes={setPostcodes}
-                />
-              </div>
-            )}
-            {view === "loading" && (
-              <div>
-                <Loading />
-              </div>
-            )}
-            {view === "result" && (
-              <div>
-                <Result
-                  setView={setView}
-                  postcodes={postcodes}
-                  setPostcodes={setPostcodes}
-                />
-              </div>
-            )}
-          </div>
-        </header>
+        <div>
+          {view === "start" && (
+            <div>
+              <Start setView={setView} />
+            </div>
+          )}
+          {view === "journey" && (
+            <div>
+              <Journey
+                setView={setView}
+                postcodes={postcodes}
+                setPostcodes={setPostcodes}
+              />
+            </div>
+          )}
+          {view === "loading" && (
+            <div>
+              <Loading />
+            </div>
+          )}
+          {view === "result" && (
+            <div>
+              <Result
+                setView={setView}
+                postcodes={postcodes}
+                setPostcodes={setPostcodes}
+              />
+            </div>
+          )}
+        </div>
       </JourneyContext.Provider>
     </div>
   );
