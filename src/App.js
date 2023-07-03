@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="app-container">
       <JourneyContext.Provider value={{ journey, setJourney }}>
-        {/* <Loading/> */}
         <div>
           {view === "start" && (
             <div>

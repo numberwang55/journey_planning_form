@@ -29,7 +29,6 @@ export const CreateJourney = ({ setView, postcodes, setPostcodes }) => {
     if (checkValidUKPostcode(postcodeInput) && postcodes.length < 3) {
       setPostcodes([...postcodes, postcodeInput]);
       setPostcodeInput("");
-      // setIsInvalidPostcode(false)
     }
   };
 
