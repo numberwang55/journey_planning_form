@@ -23,11 +23,11 @@ export default function JourneyResult({ setView, postcodes, setPostcodes }) {
         setIsLoading(false);
       })
       .catch((err) => {
-        isError(true);
-        setError(err);
-        setIsLoading(false);
+        // isError(true);
+        // setError(err);
+        // setIsLoading(false);
       });
-  }, [postcodes]);
+  }, [postcodes, isError, setJourney]);
 
   if (isLoading) {
     return <Loading />;

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const DisplayJourney = ({
   postcodeInput,
   postcodes,
@@ -10,7 +12,17 @@ export const DisplayJourney = ({
   isInvalidPostcode,
   handleClearInput,
   setView,
+  isValidUKPostcode
 }) => {
+  console.log(postcodes);
+
+  const handleCalculateClick = () => {
+    const invalid = postcodes.every(isValidUKPostcode)
+    if (invalid) {
+      setView("result");
+    }
+  }
+
   return (
     <div className="journey-entry-container">
       <h2>Journey Postcode Entry</h2>
@@ -46,15 +58,15 @@ export const DisplayJourney = ({
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>
-                  {/* <input
+                  <input
                     type="text"
                     value={postcode}
                     onChange={(e) => handleEditPostcode(index, e.target.value)}
                   />
-                  {isInvalidPostcode ? (
+                  {!isValidUKPostcode(postcode) ? (
                     <p>Invalid Postcode</p>
-                  ) : null} */}
-                  {postcode}
+                  ) : null}
+                  {/* {postcode} */}
                 </td>
                 <td>
                   <button onClick={() => handleRemovePostcode(index)}>
@@ -81,8 +93,7 @@ export const DisplayJourney = ({
       <br />
       <button
         onClick={() => {
-
-          setView("result");
+          handleCalculateClick()
         }}
         disabled={postcodes.length < 2}
       >

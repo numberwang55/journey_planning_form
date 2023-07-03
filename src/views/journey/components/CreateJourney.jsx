@@ -85,6 +85,7 @@ export const CreateJourney = ({ setView, postcodes, setPostcodes }) => {
       isInvalidPostcode={isInvalidPostcode}
       handleClearInput={handleClearInput}
       setView={setView}
+      isValidUKPostcode={isValidUKPostcode}
     />
   );
 };

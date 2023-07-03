@@ -6,9 +6,10 @@ const fetchJourney = (route, format = "miles", travelMode = "driving", trafficMo
       TrafficModel: trafficModel
     });
   
-    return fetch(`https://edia.carecontrolsystems.co.uk/Travel/JourneyPlan.aspx?${queryParams}`)
+    return fetch(`https://media.carecontrolsystems.co.uk/Travel/JourneyPlan.aspx?${queryParams}`)
       .then(response => response.text())
-      .then(data => data);
+      .then(data => data)
+      .catch(e => e)
   };
   
   export default fetchJourney;
