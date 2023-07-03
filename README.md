@@ -41,10 +41,8 @@ The Journey Planner App is a single-page web application built with React that a
 ## Testing
 
 To run the unit tests please use the below command:
-
-```
 $ npm t
-```
+
 ## Technologies Used
 
 - React
