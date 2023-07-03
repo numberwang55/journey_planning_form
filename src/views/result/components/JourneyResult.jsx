@@ -53,6 +53,7 @@ export default function JourneyResult({ setView, postcodes, setPostcodes }) {
 
   return (
     <div className="result-container">
+      <h2>Your Journey Results:</h2>
       <ul>
         <li>{postcodeOneTravelTime}</li>
         <li>{postcodeOneDistance}</li>
