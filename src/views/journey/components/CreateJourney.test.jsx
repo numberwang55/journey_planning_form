@@ -4,11 +4,11 @@ import { CreateJourney } from './CreateJourney';
 import '@testing-library/jest-dom'
 
 describe('CreateJourney', () => {
-  test('renders without errors', () => {
+  it('renders without errors', () => {
     render(<CreateJourney setView={() => {}} postcodes={[]} setPostcodes={() => {}} />);
   });
 
-  test('allows adding a valid postcode', () => {
+  it('allows adding a valid postcode', () => {
     const setPostcodesMock = jest.fn();
     const { getByPlaceholderText, getByText } = render(
       <CreateJourney setView={() => {}} postcodes={[]} setPostcodes={setPostcodesMock} />
@@ -23,7 +23,7 @@ describe('CreateJourney', () => {
     expect(setPostcodesMock).toHaveBeenCalledWith(['EX20 3BP']);
   });
 
-  test('prevents adding an invalid postcode', () => {
+  it('prevents adding an invalid postcode', () => {
     const setPostcodesMock = jest.fn();
     const { getByPlaceholderText, getByText, queryByText } = render(
       <CreateJourney setView={() => {}} postcodes={[]} setPostcodes={setPostcodesMock} />
@@ -39,7 +39,7 @@ describe('CreateJourney', () => {
     expect(queryByText(/Invalid Postcode/)).toBeInTheDocument();
   });
 
-  test('allows removing a postcode', () => {
+  it('allows removing a postcode', () => {
     const postcodes = ['EX20 3BP'];
     const setPostcodesMock = jest.fn();
     const { getByText, queryByText } = render(
@@ -53,7 +53,7 @@ describe('CreateJourney', () => {
     expect(queryByText('EX20 3BP')).not.toBeInTheDocument();
   });
 
-  test('allows moving a postcode up', () => {
+  it('allows moving a postcode up', () => {
     const postcodes = ['EX20 3BP', 'SG8 6ED'];
     const setPostcodesMock = jest.fn();
     const { getByTestId } = render(
@@ -66,7 +66,7 @@ describe('CreateJourney', () => {
     expect(setPostcodesMock).toHaveBeenCalledWith(['SG8 6ED', 'EX20 3BP']);
   });
 
-  test('allows moving a postcode down', () => {
+  it('allows moving a postcode down', () => {
     const postcodes = ['EX20 3BP', 'SG8 6ED'];
     const setPostcodesMock = jest.fn();
     const { getByTestId } = render(
@@ -79,7 +79,7 @@ describe('CreateJourney', () => {
     expect(setPostcodesMock).toHaveBeenCalledWith(['SG8 6ED', 'EX20 3BP']);
   });
 
-  test('calls setView when "Calculate Journey" button is clicked', () => {
+  it('calls setView when "Calculate Journey" button is clicked', () => {
     const setViewMock = jest.fn();
     const postcodes = ['EX20 3BP', 'SG8 6ED'];
     const { getByText } = render(

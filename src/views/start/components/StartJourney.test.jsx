@@ -11,9 +11,10 @@ describe("tests the StartJourney component", () => {
     );
     expect(welcomeText).toBeInTheDocument();
   });
+  
   it("displays start journey button on screen", () => {
     render(<StartJourney />);
-    const welcomeText = screen.getByText("Start Journey");
-    expect(welcomeText).toBeInTheDocument();
+    const buttonText = screen.getByText("Start Journey");
+    expect(buttonText).toBeInTheDocument();
   });
 });
